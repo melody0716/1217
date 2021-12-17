@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +19,22 @@
             box.style.left = `${e.clientX-50}px`;
 
             document.body.appendChild(box);
-        })
+        });
+
+        let rotate = 0;
+
+        function boxRotate() {
+            let boxes = document.querySelectorAll('div');
+            rotate += .5;
+            // boxes.forEach(function(box) {
+            //     box.style.transform = `rotate(${rotate}deg)`;
+            // });
+            requestAnimationFrame(boxRotate);
+            for (let i=0; i<boxes.length; i++) {
+                boxes[i].style.transform = `rotate(${rotate}deg)`;
+            }
+        }
+        boxRotate();
     </script>
 </body>
 </html>
